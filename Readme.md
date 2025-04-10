@@ -11,6 +11,8 @@ As an example, Tryon st is actually formed from the course that buffalo would ta
 
 The Hornets Nest Evolution Project(HNEP) is a Geographic Information Systems (GIS) project dedicated to digitizing the historical evolution of Mecklenburg County, and adjacent areas, via physical infrastructure, primarily roads and railways, and other traces left in the present. 
 
+If you are interested in learning more, either on how to view, or to contribute( we will train you!), feel free to contact the project at Bfhouseiii@gmail.com
+
 ---
 
 ## Table of Contents
@@ -103,16 +105,16 @@ To focus on specific types of infrastructure or historical periods, you can togg
 
 Contributions to this project are highly encouraged and valued! Our primary focus is on achieving the highest possible accuracy based on the available historical sources. When contributing to the project, please keep the following in mind:
 
-* **Accuracy is paramount:** We strive for accuracy in the digitization of features, their locations, and their historical timelines.
-* **Metadata is crucial:** When refining the date or location of any geographic object, it is essential to thoroughly fill out the associated metadata fields. This should include detailed information about the source of the updated data.
-* **Source documentation:** Whenever possible, please include the source of your data as an image file, document, or other relevant file within the `Sources` folder of the project. This allows for easy verification and tracking of edits.
+* **Accuracy is paramount:** We strive for accuracy in the digitization of features, their locations, and their historical timelines. Nailing down when and where something was is a tricky thing. when adding a feature, set its added date as the publication date of the first source for which you can find it referenced, but its shape, particuraly if it is found in later, more accurate sources can be pulled from that.
+* **Metadata is crucial:** When refining the date or location of any geographic object, it is essential to thoroughly fill out the associated metadata fields. This should include detailed information about the source of the updated data. where the placement or creation of something is not clear, add a comment Point to the "Discussion-Sources" around the time in doubt. others may be able to combine other puzzle pieces.
+* **Source documentation:** Due to the ever shifting sands of the internet, it is best to include the source of your data as an image file, document, or other relevant file within the `Sources` folder of the project. This allows for easy verification and tracking of edits. 
 * **Clear communication:** When submitting changes or suggesting improvements, please provide clear and concise descriptions of your contributions.
 
-By adhering to these guidelines, we can collectively build a robust and well-documented historical GIS dataset that illuminates the hidden history of Charlotte.
+Together, we can collectively build a robust and well-documented historical GIS dataset that illuminates the hidden history of Charlotte!
 
 ## Project Scope and Goals
 
-The primary scope of this project is to digitize and represent the historical evolution of physical infrastructure, focusing initially on **roads and railways** within **Mecklenburg County**. Potential future expansion may include adjacent areas, and tracking land use over time, depending on data availability and project resources. Additionally, while the roads are storyless, this project could serve as a jumping off point for highlighting interesting stories, and locations in the area.
+The primary scope of this project is to digitize and visualize the historical evolution of physical infrastructure, focusing initially on **roads and railways** within **Mecklenburg County**. Potential future expansion may include adjacent areas, and tracking land use over time, depending on data availability and project resources. Additionally, while the roads are storyless, this project could serve as a jumping off point for highlighting interesting stories, and locations in the area.
 
 The key goals of this project are:
 
