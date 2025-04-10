@@ -4,7 +4,7 @@
 [![Last Commit](https://img.shields.io/github/last-commit/Swissman1/HornetsNestMapping.svg)](https://github.com/Swissman1/HornetsNestMapping)
 [![GitHub Stars](https://img.shields.io/github/stars/Swissman1/HornetsNestMapping.svg?style=social)](https://github.com/Swissman1/HornetsNestMapping)
 
-At first glance, it may appear to many that charlotte has few historical remmants still standing, and a confusing road network. It does have history, and it is still with us today in the paths and names our roads take. 
+At first glance, it may appear to many that Charlotte has few historical remmants still standing, and a confusing road network. It does have history, and it is still with us today in the paths and names our roads take. 
 This is owed to the fact that for the first ~150 years of its existence, it was a small city the size of the current uptown, surrounded by neighboring communities, often organized around a church, with the road of the day serving to connect them. as Charlotte grew, in this environment, its roads were forced to work with that backdrop, oriented on incremental evolution, rather than a master plan like other cities such as New York. This leads to a large number of historical easter eggs that are still here today.
 
 As an example, Tryon St. is actually formed from the course that buffalo herds would take to go between fords(easy crossings) of the Catawba and Yadkin rivers. The Native Americans utilized that as a trading path, and the settlers utilized and built it out after them, forming one of the primary roads for the center of our city! 
