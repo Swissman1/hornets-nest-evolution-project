@@ -118,7 +118,6 @@ The key goals of this project are:
 
 * **Uncovering Hidden History:** To document and visualize the often-unseen historical traces of old Charlotte through its infrastructure.
 * **Spread said history in a easy to access form** For now the data is accessible mainly through dedicated GIS clients such as QGIS(free), but a dedicated website with visualization similar to [Mecklenburg time machine](https://timemachine.mcmap.org/#35.290608681589795/-80.82378745079042/17/-1009843200000) would be immensely valueable. Web developers are welcome!
-* **Historical Visualization:** To create a visually engaging and informative representation of how Mecklenburg County's transportation network has developed over time.
 * **Temporal Analysis:** To enable users to analyze the spatial and temporal relationships between different infrastructure elements and their impact on the region's growth.
 * **Data Preservation:** To create a consolidated, traceable digital archive of historical infrastructure information, making it accessible for research, education, and public interest. Many maps are scanned and show a snapshot in time, but are patchy, and often have inaccuracies, owing to the inherent inprecision of historical mapping artistic nature of many maps. 
 * **Community Contribution:** To foster a collaborative space where individuals can collectively learn about both history, and tooling to better document and visualize it.
