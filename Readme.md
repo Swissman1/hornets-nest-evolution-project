@@ -1,8 +1,8 @@
 # The Hornet's Nest Evolution Project
 
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Last Commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/hornet-nest-evolution.svg)](https://github.com/YOUR_USERNAME/hornet-nest-evolution)
-[![GitHub Stars](https://img.shields.io/github/stars/YOUR_USERNAME/hornet-nest-evolution.svg?style=social)](https://github.com/YOUR_USERNAME/hornet-nest-evolution)
+[![Last Commit](https://img.shields.io/github/last-commit/Swissman1/hornet-nest-evolution.svg)](https://github.com/Swissman1/hornet-nest-evolution)
+[![GitHub Stars](https://img.shields.io/github/stars/Swissman1/hornet-nest-evolution.svg?style=social)](https://github.com/Swissman1/hornet-nest-evolution)
 
 **A Geographic Information Systems (GIS) project dedicated to digitizing the historical evolution of Mecklenburg County, and potentially adjacent areas, as evidenced by its physical infrastructure, primarily roads and railways.**
 
