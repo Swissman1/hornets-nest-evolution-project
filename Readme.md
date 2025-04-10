@@ -4,12 +4,13 @@
 [![Last Commit](https://img.shields.io/github/last-commit/Swissman1/hornet-nest-evolution.svg)](https://github.com/Swissman1/hornet-nest-evolution)
 [![GitHub Stars](https://img.shields.io/github/stars/Swissman1/hornet-nest-evolution.svg?style=social)](https://github.com/Swissman1/hornet-nest-evolution)
 
-**A Geographic Information Systems (GIS) project dedicated to digitizing the historical evolution of Mecklenburg County, and potentially adjacent areas, as evidenced by its physical infrastructure, primarily roads and railways.**
+**A Geographic Information Systems (GIS) project dedicated to digitizing the historical evolution of Mecklenburg County, and potentially adjacent areas, as evidenced by its physical infrastructure, primarily roads and railways. The overarching purpose of this project is to document the hidden in plain sight history of Charlotte.**
 
 ---
 
 ## Table of Contents
 
+* [Project Purpose](#project-purpose)
 * [Project Description](#project-description)
 * [Getting Started](#getting-started)
     * [Cloning the Repository](#cloning-the-repository)
@@ -22,6 +23,10 @@
 * [License](#license)
 
 ---
+
+## Project Purpose
+
+The fundamental purpose of the Hornet's Nest Evolution Project is to **document the hidden in plain sight history of Charlotte**. By meticulously mapping the evolution of its physical infrastructure, particularly roads and railways, we aim to uncover and visualize the layers of history embedded within the city's landscape. These seemingly ordinary features hold stories of growth, change, and the lives of those who shaped the region. This project seeks to bring these often-overlooked historical narratives to light through the power of GIS.
 
 ## Project Description
 
@@ -98,7 +103,7 @@ Contributions to this project are highly encouraged and valued! Our primary focu
 * **Source documentation:** Whenever possible, please include the source of your data as an image file, document, or other relevant file within the `Sources` folder of the project. This allows for easy verification and tracking of edits.
 * **Clear communication:** When submitting changes or suggesting improvements, please provide clear and concise descriptions of your contributions.
 
-By adhering to these guidelines, we can collectively build a robust and well-documented historical GIS dataset.
+By adhering to these guidelines, we can collectively build a robust and well-documented historical GIS dataset that illuminates the hidden history of Charlotte.
 
 ## Project Scope and Goals
 
@@ -106,6 +111,7 @@ The primary scope of this project is to digitize and represent the historical ev
 
 The key goals of this project are:
 
+* **Uncovering Hidden History:** To document and visualize the often-unseen historical layers of Charlotte through its infrastructure.
 * **Historical Visualization:** To create a visually engaging and informative representation of how Mecklenburg County's transportation network has developed over time.
 * **Temporal Analysis:** To enable users to analyze the spatial and temporal relationships between different infrastructure elements and their impact on the region's growth.
 * **Data Preservation:** To create a digital archive of historical infrastructure information, making it accessible for research, education, and public interest.
