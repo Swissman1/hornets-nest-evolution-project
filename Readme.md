@@ -1,15 +1,15 @@
 # The Hornet's Nest Evolution Project
 
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Last Commit](https://img.shields.io/github/last-commit/Swissman1/HornetsNestMapping.svg)](https://github.com/Swissman1/HornetsNestMapping)
-[![GitHub Stars](https://img.shields.io/github/stars/Swissman1/HornetsNestMapping.svg?style=social)](https://github.com/Swissman1/HornetsNestMapping)
+[![Last Commit](https://img.shields.io/github/last-commit/Swissman1/hornets-nest-evolution-project.svg)](https://github.com/Swissman1/hornets-nest-evolution-project)
+[![GitHub Stars](https://img.shields.io/github/stars/Swissman1/hornets-nest-evolution-project.svg?style=social)](https://github.com/Swissman1/hornets-nest-evolution-project)
 
 At first glance, it may appear to many that Charlotte has few historical remmants still standing, and a confusing road network. It does have history, and it is still with us today in the paths and names our roads take. 
 This is owed to the fact that for the first ~150 years of its existence, it was a small city the size of the current uptown, surrounded by neighboring communities, often organized around a church, with the road of the day serving to connect them. as Charlotte grew, in this environment, its roads were forced to work with that backdrop, oriented on incremental evolution, rather than a master plan like other cities such as New York. This leads to a large number of historical easter eggs that are still here today.
 
 As an example, Tryon St. is actually formed from the course that buffalo herds would take to go between fords(easy crossings) of the Catawba and Yadkin rivers. The Native Americans utilized that as a trading path, and the settlers utilized and built it out after them, forming one of the primary roads for the center of our city! 
 
-The Hornets Nest Evolution Project(HNEP) is a Geographic Information Systems (GIS) project dedicated to digitizing the historical evolution of Mecklenburg County, and adjacent areas, via physical infrastructure, primarily roads and railways, and other traces left in the present. 
+The Hornets Nest Evolution Project(HNEP) is a Citizen volunteer lead, Geographic Information Systems (GIS) project dedicated to digitizing the historical evolution of Mecklenburg County, and adjacent areas, via physical infrastructure, primarily roads and railways, and other traces left in the present. 
 
 If you are interested in learning more, either on how to view, or to contribute( we will train you!), feel free to contact the project at Bfhouseiii@gmail.com
 
@@ -50,14 +50,10 @@ Follow these instructions to get a local copy of the project up and running on y
 3.  Run the following command:
 
     ```bash
-    git clone https://github.com/Swissman1/HornetsNestMapping.git
+    git clone https://github.com/Swissman1/hornets-nest-evolution-project.git
     ```
 
-4.  Once the cloning process is complete, navigate into the project directory:
 
-    ```bash
-    cd hornet-nest-evolution
-    ```
 
 ### Opening the Project in QGIS
 
@@ -68,13 +64,13 @@ This project is designed to be used with QGIS, a free and open-source Geographic
 3.  **Open the project in QGIS:**
     * Launch QGIS.
     * Go to `Project` in the menu bar and select `Open...`.
-    * Navigate to the location of the `.qgz` or `.qgs` file within the cloned repository and open it.
+    * Navigate to the location of the `Main Project.qgz` file within the cloned repository and open it.
 
-The QGIS project should now load, displaying the digitized historical infrastructure layers.
+The QGIS project should now load, displaying the project, with most layers on, and the map is ready to be examined. Feel free to play around with the project for your own tinkering. you can always re-fetch a copy, and you are not altering the orginal copy. If you want to contribute, see [Contributor Expectations](#contributor-expectations)
 
 ## Using the Temporal Controller
 
-QGIS has a powerful Temporal Controller that allows you to visualize data across time. This project is configured to leverage this functionality for viewing historical snapshots.
+QGIS has a Temporal Controller that allows you to visualize data across time by simply sliding, or animating. We have leveraged that for being able to quickly visualize by default, historical accumlation of features. Alternately by changing the properties
 
 ### Viewing Time Snapshots
 
@@ -107,6 +103,8 @@ Contributions to this project are highly encouraged and valued! Our primary focu
 * **Metadata is crucial:** When refining the date or location of any geographic object, it is essential to thoroughly fill out the associated metadata fields. This should include detailed information about the source of the updated data. where the placement or creation of something is not clear, add a comment Point to the "Discussion-Sources" around the time in doubt. others may be able to combine other puzzle pieces.
 * **Source documentation:** Due to the ever shifting sands of the internet, it is best to include the source of your data as an image file, document, or other relevant file within the `Sources` folder of the project. This allows for easy verification and tracking of edits. 
 * **Clear communication:** When submitting changes or suggesting improvements, please provide clear and concise descriptions of your contributions.
+* **Use proper "source control etiquette":** if you are unfamiliar with Github and source control, we reccomend watching [this video](https://www.youtube.com/watch?v=hwP7WQkmECE) to get you up to speed. it is a powerful and forgiving tool that allows collabloration from multiple people on the same work.
+*    it is expected that you work in a seperate branch based off of preview, and when you are ready for your contributions to be added to preview and master, you can open a pull request to preview for review by the project admin. changes will ideally be reviewed in a timely manner, but the admin has a 9-5 like the rest of us, which takes priority.
 
 Together, we can collectively build a robust and well-documented historical GIS dataset that illuminates the hidden history of Charlotte!
 
