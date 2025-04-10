@@ -4,7 +4,11 @@
 [![Last Commit](https://img.shields.io/github/last-commit/Swissman1/hornet-nest-evolution.svg)](https://github.com/Swissman1/hornet-nest-evolution)
 [![GitHub Stars](https://img.shields.io/github/stars/Swissman1/hornet-nest-evolution.svg?style=social)](https://github.com/Swissman1/hornet-nest-evolution)
 
-**A Geographic Information Systems (GIS) project dedicated to digitizing the historical evolution of Mecklenburg County, and potentially adjacent areas, as evidenced by its physical infrastructure, primarily roads and railways. The overarching purpose of this project is to document the hidden in plain sight history of Charlotte.**
+**At first glance, it may appear to many that charlotte has few historical remmants still standing, and a confusing road network. It does have history, and it is still with us today in the paths and names our roads take. 
+This is owed to the fact that for the first ~150 years of its existence, it was a small city the size of the current uptown, surrounded by neighboring communities, often organized around a church, with the road of the day serving to connect them. as charlotte grew, in this environment, its roads were forced to work with that backdrop, oriented on incremental evolution, rather than a master plan like other cities such as New York. This leads to a large number of historical easter eggs that are still here today.
+As an example Tryon st is actually formed from the course that buffalo would take to go between fords(easy crossings) of the Catawba and Yadkin rivers. The Native americans utilized that as a trading trail, and the settlers utilized and built it out after them, forming one of the primary roads for the center of our city! 
+
+The Hornets Nest Evolution Project(HNEP) is a Geographic Information Systems (GIS) project dedicated to digitizing the historical evolution of Mecklenburg County, and adjacent areas, via physical infrastructure, primarily roads and railways, and other traces left in the present. **
 
 ---
 
@@ -107,16 +111,15 @@ By adhering to these guidelines, we can collectively build a robust and well-doc
 
 ## Project Scope and Goals
 
-The primary scope of this project is to digitize and represent the historical evolution of physical infrastructure, focusing initially on **roads and railways** within **Mecklenburg County**. Potential future expansion may include adjacent areas, depending on data availability and project resources.
+The primary scope of this project is to digitize and represent the historical evolution of physical infrastructure, focusing initially on **roads and railways** within **Mecklenburg County**. Potential future expansion may include adjacent areas, and tracking land use over time, depending on data availability and project resources. Additionally, while the roads are storyless, this project could serve as a jumping off point for highlighting interesting stories, and locations in the area.
 
 The key goals of this project are:
 
-* **Uncovering Hidden History:** To document and visualize the often-unseen historical layers of Charlotte through its infrastructure.
+* **Uncovering Hidden History:** To document and visualize the often-unseen historical traces of old Charlotte through its infrastructure.
+* **Spread said history in a easy to access form** For now the data is accessible mainly through dedicated GIS clients such as QGIS(free), but a dedicated website with visualization similar to [Mecklenburg time machine](https://timemachine.mcmap.org/#35.290608681589795/-80.82378745079042/17/-1009843200000) would be immensely valueable. Web developers are welcome!
 * **Historical Visualization:** To create a visually engaging and informative representation of how Mecklenburg County's transportation network has developed over time.
 * **Temporal Analysis:** To enable users to analyze the spatial and temporal relationships between different infrastructure elements and their impact on the region's growth.
-* **Data Preservation:** To create a digital archive of historical infrastructure information, making it accessible for research, education, and public interest.
-* **Community Contribution:** To foster a collaborative environment where individuals can contribute their knowledge and resources to enhance the accuracy and completeness of the dataset.
+* **Data Preservation:** To create a consolidated, traceable digital archive of historical infrastructure information, making it accessible for research, education, and public interest. Many maps are scanned and show a snapshot in time, but are patchy, and often have inaccuracies, owing to the inherent inprecision of historical mapping artistic nature of many maps. 
+* **Community Contribution:** To foster a collaborative space where individuals can collectively learn about both history, and tooling to better document and visualize it.
 
-## License
 
-This project is licensed under the [MIT License](LICENSE). See the `LICENSE` file for more details.
