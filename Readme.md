@@ -1,8 +1,8 @@
 # The Hornet's Nest Evolution Project
 
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Last Commit](https://img.shields.io/github/last-commit/Swissman1/HornetsNestMapping.svg)](https://github.com/Swissman1/HornetsNestMapping)
-[![GitHub Stars](https://img.shields.io/github/stars/Swissman1/HornetsNestMapping.svg?style=social)](https://github.com/Swissman1/HornetsNestMapping)
+[![Last Commit](https://img.shields.io/github/last-commit/Swissman1/hornets-nest-evolution-project.svg)](https://github.com/Swissman1/hornets-nest-evolution-project)
+[![GitHub Stars](https://img.shields.io/github/stars/Swissman1/hornets-nest-evolution-project.svg?style=social)](https://github.com/Swissman1/hornets-nest-evolution-project)
 
 At first glance, it may appear to many that Charlotte has few historical remmants still standing, and a confusing road network. It does have history, and it is still with us today in the paths and names our roads take. 
 This is owed to the fact that for the first ~150 years of its existence, it was a small city the size of the current uptown, surrounded by neighboring communities, often organized around a church, with the road of the day serving to connect them. as Charlotte grew, in this environment, its roads were forced to work with that backdrop, oriented on incremental evolution, rather than a master plan like other cities such as New York. This leads to a large number of historical easter eggs that are still here today.
@@ -50,7 +50,7 @@ Follow these instructions to get a local copy of the project up and running on y
 3.  Run the following command:
 
     ```bash
-    git clone https://github.com/Swissman1/HornetsNestMapping.git
+    git clone https://github.com/Swissman1/hornets-nest-evolution-project.git
     ```
 
 4.  Once the cloning process is complete, navigate into the project directory:
