@@ -50,10 +50,8 @@ Follow these instructions to get a local copy of the project up and running on y
 3.  Run the following command:
 
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/hornet-nest-evolution.git](https://github.com/YOUR_USERNAME/hornet-nest-evolution.git)
+    git clone [https://github.com/YOUR_USERNAME/hornet-nest-evolution.git](https://github.com/Swissman1/HornetsNestMapping.git)
     ```
-
-    *(Replace `YOUR_USERNAME` with the actual username of the repository owner.)*
 
 4.  Once the cloning process is complete, navigate into the project directory:
 
