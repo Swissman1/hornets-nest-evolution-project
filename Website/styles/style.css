@@ -1,0 +1,140 @@
+/* Basic Reset & Body Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif; /* Modern, readable sans-serif for body */
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333; /* Dark grey text */
+    background-color: #f4f1eb; /* Off-white, slightly parchment-like background */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif; /* More historical-feeling serif for headers */
+    color: #4a3f35; /* Dark brown for headers */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 0; /* Remove top margin for header h1 */
+    margin-bottom: 0;
+    padding: 0.5em 0;
+}
+
+h2 {
+    font-size: 1.8em;
+    border-bottom: 2px solid #d3c8b4; /* Subtle underline for section titles */
+    padding-bottom: 0.2em;
+    margin-bottom: 1em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #8b4513; /* Saddle brown for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Layout Wrappers */
+.content-wrapper {
+    /* Use a percentage for 'almost full width', adjust as needed (e.g., 90%, 95%) */
+    max-width: 95%;
+    /* Keep margin: auto for centering and top/bottom spacing */
+    margin: 20px auto;
+    /* Remove explicit side padding, rely on max-width and margin:auto for spacing */
+    /* Alternatively, keep minimal padding: padding: 0 10px; */
+    padding: 0;
+}
+
+/* Header Styling */
+.site-header {
+    background-color: #5a4a3e; /* Dark leather/wood color */
+    color: #f4f1eb; /* Off-white text on dark background */
+    padding: 0px 0;
+    height: 5%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.site-header h1 {
+    color: #f4f1eb; /* Ensure header text is light */
+}
+
+/* Combined rule for consistent section appearance */
+.abstract-section,
+.map-section {
+    background-color: #ffffff; /* White background for content sections */
+    padding: 20px 30px;      /* Apply CONSISTENT padding to both */
+    margin-bottom: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0d9cd; /* Apply CONSISTENT border to both */
+    border-radius: 3px;
+}
+
+/* Map Section Specifics */
+/*.map-section {
+    /* Give the map container a specific height */
+    /* You can adjust this value as needed */
+    /*height: 600px;
+    /* Or use viewport height for more dynamic sizing: */
+    /* height: 70vh; */
+    /*padding: 0; /* Remove padding if map should touch edges */
+    /*border: none; /* Remove border if map should touch edges */
+   /* box-shadow: none; /* Remove shadow if map should touch edges */
+    /*overflow: hidden; /* Prevents map content from spilling */
+    /*display: flex; /* Use flexbox to manage children */
+    /*flex-direction: column; /* Stack title and map vertically */
+/*}*/
+
+
+.map-section h2 {
+    /* Revert specific padding/margin if they were set before */
+    /* Use default h2 margins or adjust slightly */
+    margin-top: 0; /* Example: Keep title near top border */
+    /* border-bottom: 2px solid #d3c8b4; /* This might already be applied by the general h2 rule */
+    /* padding-bottom: 0.2em; */
+    /* margin-bottom: 1em; */
+}
+
+/* Make the map div take the remaining space */
+#map {
+    width: 100%; /* Map takes full width of its padded container */
+    height: 600px; /* Set map height explicitly (adjust value as needed) */
+    /* Or use viewport height units e.g., height: 70vh; */
+    margin-top: 1em; /* Add space between the map title and the map itself */
+    /* Ensure original inline styles for map sizing don't conflict */
+    /* The inline style for #map height: 100% might need removing if present in HTML */
+    /* However, the JS likely sets the size, so this CSS height might be sufficient */
+}
+
+/* Footer Styling */
+.site-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    font-size: 0.9em;
+    color: #5a4a3e;
+    border-top: 1px solid #d3c8b4;
+}
+
+/* Responsive Adjustments (Example) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    .content-wrapper {
+        padding: 0 10px;
+        margin: 10px auto;
+    }
+    .map-section {
+        height: 500px; /* Adjust map height on smaller screens */
+    }
+}

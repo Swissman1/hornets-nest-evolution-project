@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="./resources/ol.css">
+    <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+    <link rel="stylesheet" href="./resources/qgis2web.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Original inline styles for map controls - keep these for compatibility */
+        .ol-control > * {
+            background-color: #f8f8f8!important;
+            color: #444444!important;
+            border-radius: 0px;
+        }
+        .ol-attribution a, .gcd-gl-input::placeholder, .search-layer-input-search::placeholder {
+            color: #444444!important;
+        }
+        .search-layer-input-search {
+            background-color: #f8f8f8!important;
+        }
+        .ol-control > *:focus, .ol-control >*:hover {
+            background-color: rgba(248, 248, 248, 0.7)!important;
+        }
+        .ol-control {
+            background-color: rgba(255,255,255,.4) !important;
+            padding: 2px !important;
+        }
+        /* Ensure map takes height within its container */
+         #map {
+            width: 100%;
+            height: 100%; /* Map will take 100% height of its parent */
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+    <title>Hornets Nest Evolution Project</title>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>Hornets Nest Evolution Project</h1>
+    </header>
+
+    <main class="content-wrapper">
+        <section id="abstract" class="abstract-section">
+            <h2>Abstract</h2>
+            <p>At first glance, it may appear to many that Charlotte has few historical remnants still standing, and a confusing road network. It does have history, and it is still with us today in the paths and names our roads take. This is owed to the fact that for the first ~150 years of its existence, it was a small city the size of the current uptown, surrounded by neighboring communities, often organized around a church, with the road of the day serving to connect them. As Charlotte grew, in this environment, its roads were forced to work with that backdrop, oriented on incremental evolution, rather than a master plan like other cities such as New York. This leads to a large number of historical easter eggs that are still here today.</p>
+            <p>The Hornets Nest Evolution Project (HNEP) is a Citizen volunteer lead, Geographic Information Systems (GIS) project dedicated to digitizing the historical evolution of Mecklenburg County, and adjacent areas, via physical infrastructure, primarily roads and railways, and other traces left in the present.</p>
+        </section>
+
+        <section id="map-container" class="map-section">
+            <h2>Interactive Map</h2>
+            <div id="map">
+                <div id="popup" class="ol-popup">
+                    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                    <div id="popup-content"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Hornets Nest Evolution Project. Map data generated via QGIS & OpenLayers.</p>
+    </footer>
+
+    <script src="resources/qgis2web_expressions.js"></script>
+    <script src="./resources/functions.js"></script>
+    <script src="./resources/ol.js"></script>
+    <script src="./resources/ol-layerswitcher.js"></script>
+    <script src="layers/1910Roads_1.js"></script>
+    <script src="layers/1910Missingroads_2.js"></script>
+    <script src="layers/1900Roads_3.js"></script>
+    <script src="layers/1900MissingRoads_4.js"></script>
+    <script src="layers/1877Roads_5.js"></script>
+    <script src="layers/1877MissingRoads_6.js"></script>
+    <script src="layers/1877Rail_7.js"></script>
+    <script src="styles/1910Roads_1_style.js"></script>
+    <script src="styles/1910Missingroads_2_style.js"></script>
+    <script src="styles/1900Roads_3_style.js"></script>
+    <script src="styles/1900MissingRoads_4_style.js"></script>
+    <script src="styles/1877Roads_5_style.js"></script>
+    <script src="styles/1877MissingRoads_6_style.js"></script>
+    <script src="styles/1877Rail_7_style.js"></script>
+    <script src="./layers/layers.js" type="text/javascript"></script>
+    <script src="./resources/Autolinker.min.js"></script>
+    <script src="./resources/qgis2web.js"></script>
+    </body>
+</html>
