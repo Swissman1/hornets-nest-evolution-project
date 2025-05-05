@@ -1,4 +1,0 @@
-Charlotte Town roads 1808-01-01 good for rough locations, some corridors are off.
-Charlotte 1877 1877-01-01 good for street name, locations
-Sanborn 1896 1896-02-01 Good for street names, existence, not geo accurate
-Meck Soil survey(MSS) 1908-01-01 good for road locations, existence, mostly accurate given scale
