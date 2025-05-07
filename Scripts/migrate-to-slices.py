@@ -61,8 +61,8 @@ fields_mapping: Dict[str,str], missing: bool = False):
     except FileNotFoundError:
         print(f"Error: Source shapefile not found at {source_shapefile}")
         exit()
-    threshold_date_str: str = f"{year}-07-01"
-    last_date_str: str = f"{last_year}-07-01"
+    threshold_date_str: str = f"{year}-12-01"
+    last_date_str: str = f"{last_year}-12-01"
     last_date: date
     if last_year != '0000':
         last_date = datetime.strptime(last_date_str, '%Y-%m-%d').date()
