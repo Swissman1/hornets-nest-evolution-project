@@ -13,6 +13,9 @@ destination_railname: str = "Rail.shp"
 # Define the field in the source shapefile to use for the date condition
 date_field: str = 'dateadded'
 missing_date_field: str = 'date Rem'
+years : list[int]= [1850,1880,1900,1910,1920]
+
+i =0
 name_field: str = 'wholestnam'
 road_fields_mapping: Dict[str, str] = {
     date_field :'First Seen',
@@ -26,7 +29,6 @@ missing_road_fields_mapping: Dict[str,str] = {
 rail_fields_mapping: Dict[str, str] = {
     date_field: 'First Seen',
 }
-years : list[int]= [1880,1900,1910,1920]
 
 def pull_slice(source_shapefilefolder, destination_shapefilefolder, year, last_year_str):
   pull_features(f"{source_shapefilefolder}/Missing/"+"Missing Streets.shp",
