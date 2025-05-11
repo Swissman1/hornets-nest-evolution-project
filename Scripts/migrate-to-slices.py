@@ -92,12 +92,18 @@ fields_mapping: Dict[str,str], missing: bool = False):
     filtered_gdf: gpd.GeoDataFrame
     if last_year == "0000":
         if missing :
-            filtered_gdf = source_gdf[(source_gdf[date_field] < threshold_date) & (source_gdf[missing_date_field].isna()) | (source_gdf[missing_date_field]>threshold_date) ].copy()
+            filtered_gdf = source_gdf[
+                (source_gdf[date_field] < threshold_date) & 
+                ((source_gdf[missing_date_field].isna()) | (source_gdf[missing_date_field] >= threshold_date))].copy()
         else:
             filtered_gdf = source_gdf[source_gdf[date_field] < threshold_date].copy()
     else:
         if missing:
-            filtered_gdf = source_gdf[ (source_gdf[date_field] < threshold_date) & (source_gdf[date_field] > last_date) & (source_gdf[missing_date_field].isna()) | (source_gdf[missing_date_field]>threshold_date)].copy()
+            filtered_gdf = source_gdf[
+    (source_gdf[date_field] < threshold_date) &
+    (source_gdf[date_field] > last_date) &
+    ((source_gdf[missing_date_field].isna()) | (source_gdf[missing_date_field] >= threshold_date))
+].copy()
         else :
             filtered_gdf = source_gdf[ (source_gdf[date_field] < threshold_date) & (source_gdf[date_field] > last_date) ].copy()       
     features = len(filtered_gdf)
