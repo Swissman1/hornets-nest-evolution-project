@@ -13,7 +13,7 @@ destination_railname: str = "Rail.shp"
 # Define the field in the source shapefile to use for the date condition
 date_field: str = 'dateadded'
 missing_date_field: str = 'date Rem'
-years : list[int]= [1850,1880,1900,1910,1920]
+years : list[int]= [1800,1860,1880,1900,1910,1920,1950]
 
 i =0
 name_field: str = 'wholestnam'
@@ -38,7 +38,7 @@ def pull_slice(source_shapefilefolder, destination_shapefilefolder, year, last_y
                 ,year,
                 date_field,
                 missing_road_fields_mapping, True)
-  pull_features(f"{source_shapefilefolder}/Streets/streets.shp", 
+  pull_features(f"{source_shapefilefolder}/Streets/Streets.shp", 
                 destination_shapefilefolder,
                 destination_roadname,last_year_str,
             year, date_field, road_fields_mapping)
