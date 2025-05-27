@@ -14,8 +14,8 @@ destination_railname: str = "Rail.shp"
 date_field: str = 'dateadded'
 missing_date_field: str = 'date Rem'
 typeField: str = 'thoroughfa'
-years : list[int]= [1800,1860,1880,1900,1910,1920,1950]
-roadTypeExclude =  np.array(["EXCOLLMJ", "Local"])
+years : list[int]= [1800,1860,1880,1900,1910,1920,1950,1980,1994]
+roadTypeExclude =  np.array(["EXCOLLMJ", "LOCAL"])
 
 i =0
 name_field: str = 'wholestnam'
