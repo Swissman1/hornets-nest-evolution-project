@@ -2,7 +2,7 @@ import os
 import geopandas as gpd
 from datetime import date, datetime
 from typing import Dict, Any
-
+import numpy as np
 # Define the file paths for your source and destination shapefiles
 source_shapefilefolder: str = '../Derived-Layers'
 destination_shapefilefolder: str = '../Derived-Layers/Time Slices'
@@ -13,7 +13,9 @@ destination_railname: str = "Rail.shp"
 # Define the field in the source shapefile to use for the date condition
 date_field: str = 'dateadded'
 missing_date_field: str = 'date Rem'
+typeField: str = 'thoroughfa'
 years : list[int]= [1800,1860,1880,1900,1910,1920,1950]
+roadTypeExclude =  np.array(["EXCOLLMJ", "Local"])
 
 i =0
 name_field: str = 'wholestnam'
@@ -77,36 +79,19 @@ fields_mapping: Dict[str,str], missing: bool = False):
         exit()
     threshold_date_str: str = f"{year}-12-01"
     last_date_str: str = f"{last_year}-12-01"
-    last_date: date
+    last_date: date = None
     if last_year != '0000':
         last_date = datetime.strptime(last_date_str, '%Y-%m-%d').date()
     print(f"loading time :{last_year}-{year} for {source_shapefile} to {destinationShapeFileName}")
+    isRail = DetermineRail(source_shapefile)
     threshold_date: date = datetime.strptime(threshold_date_str, '%Y-%m-%d').date()
 
     convert_field_to_dt(date_field, source_gdf)
     if missing:
         convert_field_to_dt(missing_date_field, source_gdf)
     
-
 # Filter the source GeoDataFrame based on the date condition
-    filtered_gdf: gpd.GeoDataFrame
-    if last_year == "0000":
-        if missing :
-            filtered_gdf = source_gdf[
-                (source_gdf[date_field] < threshold_date) & 
-                ((source_gdf[missing_date_field].isna()) | (source_gdf[missing_date_field] >= threshold_date))].copy()
-        else:
-            filtered_gdf = source_gdf[source_gdf[date_field] < threshold_date].copy()
-    else:
-        if missing:
-            filtered_gdf = source_gdf[
-    (source_gdf[date_field] < threshold_date) &
-    (source_gdf[date_field] > last_date) &
-    ((source_gdf[missing_date_field].isna()) | (source_gdf[missing_date_field] >= threshold_date))
-].copy()
-        else :
-            filtered_gdf = source_gdf[ (source_gdf[date_field] < threshold_date) & (source_gdf[date_field] > last_date) ].copy()       
-    features = len(filtered_gdf)
+    filtered_gdf = FilterFeatures(last_year, date_field, missing, source_gdf, last_date, threshold_date,isRail)
 
 
 # Create a new GeoDataFrame for the destination with the mapped fields
@@ -119,7 +104,7 @@ fields_mapping: Dict[str,str], missing: bool = False):
 
 # Include the geometry from the filtered GeoDataFrame
     destination_gdf: gpd.GeoDataFrame = gpd.GeoDataFrame(
-    destination_data, geometry=filtered_gdf.geometry, crs=filtered_gdf.crs
+    destination_data, geometry=filtered_gdf.geometry, crs=source_gdf.crs
 )
 
 # Save the new GeoDataFrame to the destination shapefile
@@ -133,6 +118,43 @@ fields_mapping: Dict[str,str], missing: bool = False):
         print(f"Error: destination shapefile not found at {destinationShapeFileName}")
     except Exception as e:
         print(f"Error saving the destination shapefile: {e}")
+
+def DetermineRail(sourceName):
+    if 'rail' in str.lower(sourceName) :
+        return True
+    else: 
+        return False
+def FilterFeatures(last_year, date_field, missing, source_gdf, last_date, threshold_date, isRail):
+    """
+    Filters features from source_gdf based on date fields, missing status, and road type exclusion.
+    The roadTypeExclude filter is only applied when isRail is False and missing is False.
+    """
+    conditions = []
+
+    # Always filter by threshold_date
+    conditions.append(source_gdf[date_field] < threshold_date)
+
+    # If last_year is not "0000", filter by last_date
+    if last_year != "0000":
+        conditions.append(source_gdf[date_field] > last_date)
+
+    # If missing, filter by missing_date_field logic
+    if missing:
+        conditions.append(
+            (source_gdf[missing_date_field].isna()) | (source_gdf[missing_date_field] >= threshold_date)
+        )
+    # If not missing and not rail, filter out excluded road types
+    elif not isRail:
+        conditions.append(~source_gdf[typeField].isin(roadTypeExclude))
+
+    # Combine all conditions
+    from functools import reduce
+    import operator
+    mask = reduce(operator.and_, conditions)
+
+    filtered_gdf = source_gdf[mask].copy()
+    features = len(filtered_gdf)
+    return filtered_gdf
 
 
 last_year = "0000"
