@@ -1,5 +1,6 @@
 import os
 import geopandas as gpd
+import pandas as pd
 from datetime import date, datetime
 from typing import Dict, Any
 from feature_filter import FeatureFilter
@@ -43,30 +44,24 @@ class ShapefileProcessor:
         else:
             print(f"Error: '{date_field}' not found in the source shapefile.")
             exit()
-    def map_throughfareToType(self, data):
-        for feature in data[roadTypeField]:
-            match feature:
-                case 'EXMJTH':
-                    feature = 'Major Road'
-                case 'C2EX':
-                    feature = 'Trunk Road'
-                case 'LOCAL':
-                    feature = 'Neighborhood Road'
-                case 'EXCOLLMJ':
-                    feature = 'Minor Road' 
-                case 'EXMJTHC3C':
-                    feature = 'Trunk Road'
-                case 'EXMINTH':
-                    feature = 'Collecting Residential Road'
-                case 'EXFRY': 
-                    feature = 'Highway'
-                case 'PROPFRY':
-                    feature = 'Freeway'
-                case 'HISTCOLL':
-                    feature = 'LOCAL'
-                
-                case _:
-                    feature = feature
+    def map_throughfareToType(self, series_data: pd.Series) -> pd.Series:
+        # Define your mapping here
+        # Keys are original values, values are desired new values
+        mapping = {
+            'EXMJTH': 'Major Road',
+            'C2EX': 'Trunk Road',
+            'LOCAL': 'Neighborhood Road',
+            'EXCOLLMJ': 'Minor Road',
+            'EXMJTHC3C': 'Trunk Road',
+            'EXMINTH': 'Collecting Residential Road',
+            'EXFRY': 'Highway',
+            'PROPFRY': 'Freeway',
+            'HISTCOLL': 'Neighborhood Road' # Changed from 'LOCAL' to 'Neighborhood Road' for consistency
+        }
+        # Use .map() to apply the mapping.
+        # .fillna(series_data) ensures that values not in the 'mapping' dictionary
+        # retain their original value instead of becoming NaN.
+        return series_data.map(mapping).fillna(series_data)
 
         return
     def pull_features_generic(
@@ -121,9 +116,10 @@ class ShapefileProcessor:
         destination_data: Dict[str, Any] = {}
         for source_field, destination_field in fields_mapping.items():
             if source_field in filtered_gdf.columns:
-                    destination_data[destination_field] = filtered_gdf[source_field]
-                    if source_field == typeField:
-                        self.map_throughfareToType(destination_data);
+                    if source_field == typeField: 
+                        destination_data[destination_field] = self.map_throughfareToType(filtered_gdf[source_field])
+                    else:
+                        destination_data[destination_field] = filtered_gdf[source_field]
             else:
                 print(f"Warning: Source field `{source_field}` not found in the source shapefile.")
         destination_gdf: gpd.GeoDataFrame = gpd.GeoDataFrame(
@@ -151,18 +147,18 @@ class ShapefileProcessor:
         is_missing_rail_rail = FeatureFilter.determine_rail(missing_rail_path)
         is_railroads_rail = FeatureFilter.determine_rail(railroads_path)
 
-        # self.pull_features_generic(
-        #     missing_streets_path,
-        #     self.destination_shapefilefolder,
-        #     destination_missing_roadname,
-        #     last_year_str,
-        #     year,
-        #     date_field,
-        #     missing_road_fields_mapping,
-        #     True,
-        #     filter_func=FeatureFilter.filter_big_features,
-        #     isRail=is_missing_streets_rail
-        # )
+        self.pull_features_generic(
+            missing_streets_path,
+            self.destination_shapefilefolder,
+            destination_missing_roadname,
+            last_year_str,
+            year,
+            date_field,
+            missing_road_fields_mapping,
+            True,
+            filter_func=FeatureFilter.filter_features,
+            isRail=is_missing_streets_rail
+        )
         # self.pull_features_generic(
         #     streets_path,
         #     self.destination_shapefilefolder,
