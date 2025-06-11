@@ -117,6 +117,7 @@ class ShapefileProcessor:
                     print("No non-point features left to write. Exiting this slice.")
                     return
 
+        
         destination_data: Dict[str, Any] = {}
         for source_field, destination_field in fields_mapping.items():
             if source_field in filtered_gdf.columns:
