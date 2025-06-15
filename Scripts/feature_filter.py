@@ -50,4 +50,19 @@ class FeatureFilter:
         
         mask = reduce(operator.and_, conditions)
         filtered_gdf = source_gdf[mask].copy()
+        # if last_year == 1860:
+        #     logCollege(filtered_gdf)
         return filtered_gdf
+
+def logCollege(filtered_gdf):
+    college_features = filtered_gdf[
+                filtered_gdf["Name"].astype(str).str.contains('College', case=False, na=False)
+            ]
+            
+    if not college_features.empty:
+        print(
+            f"In year 1880, found features containing 'College': "
+            f"{college_features["Name"].tolist()}"
+        )
+    else:
+        print(f"In year 1880, no features containing 'College' were found.")
