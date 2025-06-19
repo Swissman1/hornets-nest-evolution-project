@@ -1,0 +1,9 @@
+if( "thoroughfa" = 'EXMJTH','Major',
+  if( "thoroughfa" = 'EXMINTH','Minor',
+   if( "thoroughfa" = 'C2EX','Trunk Road',
+if( "thoroughfa" = 'LOCAL','Neighborhood Road',
+ if( "thoroughfa" = 'EXCOLLMJ','Collecting Residential Road',
+  if( "thoroughfa" = 'EXMJTHC3C','Trunk Road',
+if( "thoroughfa" = 'EXFRY','Highway',
+  if( "thoroughfa" = 'PROPFRY','Freeway',
+  if( "thoroughfa" = 'HISTCOLL','Neighborhood Road',"Other")))))))))
