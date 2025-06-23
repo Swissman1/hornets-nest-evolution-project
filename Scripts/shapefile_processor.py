@@ -66,32 +66,23 @@ class ShapefileProcessor:
         return
     def pull_features_generic(
         self,
-        source_shapefile, destination_shapefile_folder: str, destinationShapeFileName: str, last_year: int,
-        year: int, date_field: str, fields_mapping: Dict[str, str], missing: bool = False,
-        filter_func=None, isRail: bool = False
+        source_shapefile, destination_shapefile_folder: str, destinationShapeFileName: str, 
+        date_field: str, fields_mapping: Dict[str, str],
+        filter_func=None, 
     ):
-        destination_dir = os.path.join(destination_shapefile_folder, str(year))
+        destination_dir = os.path.join(destination_shapefile_folder, "display")
         os.makedirs(destination_dir, exist_ok=True)
-        if last_year != '0000':
-            destinationShapeFileName = os.path.join(destination_dir, f"{last_year}-{year} {destinationShapeFileName}")
-        else:
-            destinationShapeFileName = os.path.join(destination_dir, f"{year} {destinationShapeFileName}")
+
+        destinationShapeFileName = os.path.join(destination_dir, destinationShapeFileName)
         try:
             source_gdf: gpd.GeoDataFrame = gpd.read_file(source_shapefile)
         except FileNotFoundError:
             print(f"Error: Source shapefile not found at {source_shapefile}")
             exit()
-        threshold_date_str: str = f"{year}-12-01"
-        last_date_str: str = f"{last_year}-12-01"
-        last_date: date = None
-        if last_year != '0000':
-            last_date = datetime.strptime(last_date_str, '%Y-%m-%d').date()
-        print(f"loading time :{last_year}-{year} for {source_shapefile} to {destinationShapeFileName}")
-        threshold_date: date = datetime.strptime(threshold_date_str, '%Y-%m-%d').date()
+        
+        print(f"loading features for {source_shapefile} to {destinationShapeFileName}")
         self.convert_field_to_dt(date_field, source_gdf)
-        if missing:
-            self.convert_field_to_dt(missing_date_field, source_gdf)
-        filtered_gdf = filter_func(last_year, date_field, missing, source_gdf, last_date, threshold_date, isRail)
+        filtered_gdf = filter_func( date_field, source_gdf)
         print(f"Filtered GDF length: {len(filtered_gdf)}")
         if not filtered_gdf.empty:
             geom_types = filtered_gdf.geometry.geom_type.unique()
@@ -125,6 +116,17 @@ class ShapefileProcessor:
         destination_gdf: gpd.GeoDataFrame = gpd.GeoDataFrame(
             destination_data, geometry=filtered_gdf.geometry, crs=source_gdf.crs
         )
+         # Dissolve by the destination field names which correspond to the values in fields_mapping
+        # Ensure that the columns used for dissolving exist in the destination_gdf
+        dissolve_by_columns = [col for col in fields_mapping.values() if col in destination_gdf.columns]
+        
+        if dissolve_by_columns:
+            print(f"Dissolving by columns: {dissolve_by_columns}")
+  
+            destination_gdf = destination_gdf.dissolve(by=dissolve_by_columns)
+        else:
+            print("No valid columns found from field mappings to dissolve by. Skipping dissolve operation.")
+
         try:
             destination_gdf.to_file(destinationShapeFileName)
             print(f"Successfully migrated {len(filtered_gdf)} features to {destinationShapeFileName}")
@@ -135,29 +137,24 @@ class ShapefileProcessor:
         return
 
 
+
+
+
     
     def pull_slice(self, year, last_year_str):
         missing_streets_path = os.path.join(self.source_shapefilefolder, "Missing", "Missing Streets.shp")
         streets_path = os.path.join(self.source_shapefilefolder, "Streets", "Streets.shp")
-        missing_rail_path = os.path.join(self.source_shapefilefolder, "Missing", "Missing Rail.shp")
-        railroads_path = os.path.join(self.source_shapefilefolder, "Railroads", "Railroads.shp")
+        # missing_rail_path = os.path.join(self.source_shapefilefolder, "Missing", "Missing Rail.shp")
+        # railroads_path = os.path.join(self.source_shapefilefolder, "Railroads", "Railroads.shp")
 
-        is_missing_streets_rail = FeatureFilter.determine_rail(missing_streets_path)
-        is_streets_rail = FeatureFilter.determine_rail(streets_path)
-        is_missing_rail_rail = FeatureFilter.determine_rail(missing_rail_path)
-        is_railroads_rail = FeatureFilter.determine_rail(railroads_path)
 
         self.pull_features_generic(
             missing_streets_path,
-            self.destination_shapefilefolder,
+            self.destination_shapefilefolder+ "Missing",
             destination_missing_roadname,
-            last_year_str,
-            year,
             date_field,
             missing_road_fields_mapping,
-            True,
             filter_func=FeatureFilter.filter_features,
-            isRail=is_missing_streets_rail
         )
         # self.pull_features_generic(
         #     streets_path,
@@ -175,13 +172,10 @@ class ShapefileProcessor:
             streets_path,
             self.destination_shapefilefolder,
             destination_roadname,
-            last_year_str,
-            year,
             date_field,
             road_fields_mapping,
-            False,
-            filter_func=FeatureFilter.filter_features,
-            isRail=is_streets_rail
+            filter_func=FeatureFilter.filter_features
         )
+
 
 
