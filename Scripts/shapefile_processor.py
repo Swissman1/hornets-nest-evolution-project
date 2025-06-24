@@ -150,7 +150,7 @@ class ShapefileProcessor:
 
         self.pull_features_generic(
             missing_streets_path,
-            self.destination_shapefilefolder+ "Missing",
+            self.destination_shapefilefolder,
             destination_missing_roadname,
             date_field,
             missing_road_fields_mapping,
